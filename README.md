@@ -143,7 +143,7 @@ if __name__ == "__main__":
    - 해결한 문제를 통합하여 본 문제를 해결
 
 ### 대표 알고리즘
-1. [피보나치 수열](https://www.acmicpc.net/problem/2747)
+1. [피보나치 수열](https://www.acmicpc.net/problem/10870)
 2. 병합정렬(Merge sort)
    - [4 5 1 3 2]
 3. 퀵정렬(Quick sort)
