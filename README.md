@@ -124,6 +124,35 @@ if __name__ == "__main__":
 
 <br/><br/><br/>
 
+# 알고리즘
+
+<details>
+<summary>접기/펼치기</summary>
+<div markdown="1">
+
+## 분할정복
+
+[![분할정복](./사진파일/dividenconquer.png)](https://namu.wiki/w/%EB%B6%84%ED%95%A0%20%EC%A0%95%EB%B3%B5%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+
+### 설계
+1. Divide
+   - 문제가 분할이 가능한 경우, N개의 문제로 나누기
+2. Conquer
+   - 분할한 문제를 해결
+3. Combine
+   - 해결한 문제를 통합하여 본 문제를 해결
+
+### 대표 알고리즘
+1. [피보나치 수열](https://www.acmicpc.net/problem/2747)
+2. 병합정렬(Merge sort)
+   - [4 5 1 3 2]
+3. 퀵정렬(Quick sort)
+
+</div>
+</details>
+
+<br/><br/><br/>
+
 # 지난 스터디 문제
 
 <details>
