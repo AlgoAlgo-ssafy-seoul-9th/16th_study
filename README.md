@@ -364,6 +364,9 @@ def bt(score, idx, alpha):
         if score < ans:
             ans = score
         return
+    
+    if score >= ans:
+        return
 
     if s_lst[alpha]:
         min_lo = min(s_lst[alpha])
