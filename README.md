@@ -67,6 +67,35 @@ print(answer[2])
 
 ### [병국](./종이의%20개수/병국.py)
 ```py
+# 나누고 > 체크하는 과정 반복
+# 일단 나눠
+#  어떻게 체크할래 ? 합이 무조건 홀수다, 음수 홀수,
+def cut(x,y,n):
+    global minus,plus,zero
+    check_num = arr[x][y]
+    for i in range(x,x+n):
+        for j in range(y,y+n):
+            # 다르면 9개로 자르자
+            if arr[i][j] != check_num:
+                for a in range(3):
+                    for b in range(3):
+                        cut(x+a*(n//3), y+b*(n//3), n//3)
+                return
+    if check_num == -1:
+        minus+=1
+    elif check_num == 1:
+        plus+=1
+    else:
+        zero+=1
+n = int(input())
+arr = [list(map(int,input().split())) for _ in range(n)]
+minus = 0
+plus = 0
+zero = 0
+cut(0,0,n)
+print(minus)
+print(zero)
+print(plus)
 ```
 
 ### [성구](./종이의%20개수/성구.py)
@@ -207,6 +236,37 @@ print(cnt)
 
 ### [병국](./스마트분류/병국.py)
 ```py
+n,k = map(int,input().split())
+arr = list(input())
+
+
+where_robot = []
+for i in range(len(arr)):
+    if arr[i] == 'P':
+        where_robot.append(i)
+# p가 로봇, h가 부품
+eat_list = [[] for _ in range(len(arr))]
+for i in range(len(arr)):
+    if arr[i] == 'P':
+        for j in range(i-k,i+k+1):
+            if j == i or j<0 or j>=len(arr) or j in where_robot:
+                continue
+            eat_list[i].append(j)
+# print(eat_list)
+# 로봇부터 시작하면 왼쪽을 계속 먹어들어가야한다
+
+idx = 0
+cnt = 0
+v = [0] * (len(arr)+1)
+while idx < len(arr):
+    if arr[idx] == 'P':
+        for product in eat_list[idx]:
+            if v[product] == 0:
+                v[product] = 1
+                cnt += 1
+                break
+    idx += 1
+print(cnt)
 ```
 
 ### [성구](./스마트분류/성구.py)
