@@ -13,8 +13,9 @@ def mergesort(lst):
 
     merged_lst = []
     i, j = 0, 0
+    L, R = len(l_lst), len(r_lst)
 
-    while i < len(l_lst) and j < len(r_lst):
+    while i < L and j < R:
         if l_lst[i] < r_lst[j]:
             merged_lst.append(l_lst[i])
             i += 1
@@ -22,15 +23,14 @@ def mergesort(lst):
             merged_lst.append(r_lst[j])
             j += 1
 
-    if i == len(l_lst):
-        while j != len(r_lst):
-            merged_lst.append(r_lst[j])
-            j += 1
+    
+    while j != R:
+        merged_lst.append(r_lst[j])
+        j += 1
 
-    if j == len(r_lst):
-        while i != len(l_lst):
-            merged_lst.append(l_lst[i])
-            i += 1
+    while i != L:
+        merged_lst.append(l_lst[i])
+        i += 1
 
     return merged_lst
 
