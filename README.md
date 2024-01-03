@@ -1,7 +1,9 @@
 # 16th_study
+
 16주차 스터디
 
-# 스터디 사전 문제 
+# 스터디 사전 문제
+
 [바로가기](https://www.acmicpc.net/problem/1780)
 
 <details>
@@ -11,6 +13,7 @@
 ## [종이의 개수](https://www.acmicpc.net/problem/1780)
 
 ### [민웅](./종이의%20개수/민웅.py)
+
 ```py
 # 1780_종이의개수_number-of-papers
 import sys
@@ -62,10 +65,54 @@ print(answer[2])
 ```
 
 ### [상미](./종이의%20개수/상미.py)
+
 ```py
+## 백준 1780 _ 종이의 개수
+
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+nums = [list(map(int, input().split())) for _ in range(N)]
+
+answer = {-1:0, 0:0, 1:0}       # 개수 저장할 딕셔너리
+
+def samenumber(x, y, n):
+    if n == 1:
+        answer[nums[x][y]] += 1
+        return
+
+    tmp = nums[x][y]
+    for i in range(x, x+n):
+        for j in range(y, y+n):
+            # tmp와 다른 숫자가 발견되면
+            if nums[i][j] != tmp:
+                n //= 3
+                samenumber(x, y, n) # 1행
+                samenumber(x, y+n, n)
+                samenumber(x, y+2*n, n)
+
+                samenumber(x+n, y, n) # 2행
+                samenumber(x+n, y+n, n)
+                samenumber(x+n, y+2*n, n)
+
+                samenumber(x+2*n, y, n) # 3행
+                samenumber(x+2*n, y+n, n)
+                samenumber(x+2*n, y+2*n, n)
+                return  #### 쪼갰으면 기존의 탐색은 종료 ####
+
+    # 사각형 전부 기준과 같은 숫자인 경우 카운트
+    answer[tmp] += 1
+    return
+
+samenumber(0, 0, N)
+
+for i in range(-1, 2):
+    print(answer[i])
 ```
 
 ### [병국](./종이의%20개수/병국.py)
+
 ```py
 # 나누고 > 체크하는 과정 반복
 # 일단 나눠
@@ -99,6 +146,7 @@ print(plus)
 ```
 
 ### [성구](./종이의%20개수/성구.py)
+
 ```py
 # 1780 종이의 개수
 import sys
@@ -120,7 +168,7 @@ def devide(start_x:int, end_x:int, start_y:int, end_y:int) -> None:
     # 중간지점 찾기
     x1_3, x2_3 = start_x+(end_x-start_x)//3, start_x+(end_x-start_x)//3*2
     y1_3, y2_3 = start_y+(end_y-start_y)//3, start_y+(end_y-start_y)//3*2
-    
+
     # 재귀
     for sy, ey in [(start_y,y1_3),(y1_3,y2_3), (y2_3,end_y)]:
         for sx, ex in [(start_x,x1_3),(x1_3,x2_3), (x2_3,end_x)]:
@@ -164,6 +212,7 @@ if __name__ == "__main__":
 [![분할정복](./사진파일/dividenconquer.png)](https://namu.wiki/w/%EB%B6%84%ED%95%A0%20%EC%A0%95%EB%B3%B5%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 
 ### 설계
+
 1. Divide
    - 문제가 분할이 가능한 경우, N개의 문제로 나누기
 2. Conquer
@@ -172,6 +221,7 @@ if __name__ == "__main__":
    - 해결한 문제를 통합하여 본 문제를 해결
 
 ### 대표 알고리즘
+
 1. [피보나치 수열](https://www.acmicpc.net/problem/10870)
 2. 병합정렬(Merge sort)
    - [4 5 1 3 2]
@@ -191,6 +241,7 @@ if __name__ == "__main__":
 ## [스마트 물류](https://softeer.ai/practice/6279)
 
 ### [민웅](./스마트분류/민웅.py)
+
 ```py
 import sys
 input = sys.stdin.readline
@@ -226,15 +277,18 @@ for i in range(N):
           break
 
 print(cnt)
-          
-      
+
+
 ```
 
 ### [상미](./스마트분류/상미.py)
+
 ```py
+
 ```
 
 ### [병국](./스마트분류/병국.py)
+
 ```py
 n,k = map(int,input().split())
 arr = list(input())
@@ -270,6 +324,7 @@ print(cnt)
 ```
 
 ### [성구](./스마트분류/성구.py)
+
 ```py
 import sys
 input = sys.stdin.readline
@@ -297,6 +352,7 @@ if __name__ == "__main__":
 ## [신기한 키보드](https://www.acmicpc.net/problem/1796)
 
 ### [민웅](./신기한%20키보드/민웅.py)
+
 ```py
 # 1796_신기한 키보드
 import sys
@@ -342,18 +398,22 @@ print(ans)
 ```
 
 ### [상미](./신기한%20키보드/상미.py)
+
 ```py
+
 ```
 
 ### [병국](./신기한%20키보드/병국.py)
+
 ```py
+
 ```
 
 ### [성구](./신기한%20키보드/성구.py)
-```py
-```
 
+```py
+
+```
 
 </div>
 </details>
-
