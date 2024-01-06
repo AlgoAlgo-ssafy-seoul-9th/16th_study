@@ -203,7 +203,7 @@ if __name__ == "__main__":
 
 # 알고리즘
 
-<details>
+<details open>
 <summary>접기/펼치기</summary>
 <div markdown="1">
 
